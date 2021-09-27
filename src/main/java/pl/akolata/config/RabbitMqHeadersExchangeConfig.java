@@ -24,8 +24,8 @@ public class RabbitMqHeadersExchangeConfig {
             Queue queueTaxiNormalSmall,
             Queue queueTaxiEcoLarge) {
         return new Declarables(
-                BindingBuilder.bind(queueTaxiNormalSmall).to(exchangeTaxiHeaders).whereAny(Map.of("from", "small", "to", "small")).match(),
-                BindingBuilder.bind(queueTaxiEcoLarge).to(exchangeTaxiHeaders).whereAll(Map.of("from", "eco.large", "to", "eco.large")).match()
+                BindingBuilder.bind(queueTaxiNormalSmall).to(exchangeTaxiHeaders).whereAny(Map.of("from", "eco.small", "pricingModel", 1)).match(),
+                BindingBuilder.bind(queueTaxiEcoLarge).to(exchangeTaxiHeaders).whereAll(Map.of("from", "eco.large", "pricingModel", 2)).match()
         );
     }
 
