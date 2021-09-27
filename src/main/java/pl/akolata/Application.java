@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import pl.akolata.demo.defaultexchange.DefaultExchangeProducer;
 import pl.akolata.demo.directexchange.DirectExchangeProducer;
 import pl.akolata.demo.fanoutexchange.FanoutExchangeProducer;
+import pl.akolata.demo.topicexchange.TopicExchangeProducer;
 
 @SpringBootApplication
 @RequiredArgsConstructor
@@ -14,6 +15,7 @@ public class Application implements CommandLineRunner {
     private final DefaultExchangeProducer defaultExchangeProducer;
     private final DirectExchangeProducer directExchangeProducer;
     private final FanoutExchangeProducer fanoutExchangeProducer;
+    private final TopicExchangeProducer topicExchangeProducer;
 
 
     public static void main(String[] args) {
@@ -22,9 +24,10 @@ public class Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        defaultExchangeProducer.sendMessage();
-        directExchangeProducer.sendMessage();
-        fanoutExchangeProducer.sendMessage();
+//        defaultExchangeProducer.sendMessage();
+//        directExchangeProducer.sendMessage();
+//        fanoutExchangeProducer.sendMessage();
+        topicExchangeProducer.sendMessage();
     }
 
 }
